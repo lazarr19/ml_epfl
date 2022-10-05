@@ -17,7 +17,5 @@ def compute_loss(y, tx, w):
     Returns:
         the value of the loss (a scalar), corresponding to the input parameters w.
     """
-    # ***************************************************
     e = y - np.ravel(np.dot(tx, w))
     return np.dot(np.transpose(e), e)/(2*e.shape[0])
-    # ***************************************************

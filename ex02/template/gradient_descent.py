@@ -16,11 +16,8 @@ def compute_gradient(y, tx, w):
     Returns:
         An array of shape (2, ) (same shape as w), containing the gradient of the loss at w.
     """
-    # ***************************************************
-    # INSERT YOUR CODE HERE
-    # TODO: compute gradient vector
-    # ***************************************************
-    raise NotImplementedError
+    e = y - np.ravel(np.dot(tx, w));   
+    return - np.dot(np.transpose(tx), e)/e.shape[0]
 
 
 def gradient_descent(y, tx, initial_w, max_iters, gamma):
@@ -42,17 +39,10 @@ def gradient_descent(y, tx, initial_w, max_iters, gamma):
     losses = []
     w = initial_w
     for n_iter in range(max_iters):
-        # ***************************************************
-        # INSERT YOUR CODE HERE
-        # TODO: compute gradient and loss
-        # ***************************************************
-        raise NotImplementedError
-        # ***************************************************
-        # INSERT YOUR CODE HERE
-        # TODO: update w by gradient
-        # ***************************************************
-        raise NotImplementedError
-
+        
+        w = w - gamma * compute_gradient(y, tx, w)
+        loss = compute_loss(y, tx, w)
+        
         # store w and loss
         ws.append(w)
         losses.append(loss)
